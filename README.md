@@ -2,7 +2,7 @@
 **Ontario Tech University – Machine Learning Course Project (Winter 2025)**  
 **Group Members:**  
 - [Arian Vares] 	      – Student ID: 100882708
-- [Member 2 Name] – Student ID: 100xxxxxx  
+- [Yash Patel] – Student ID: 100785833  
 - [Member 3 Name] – Student ID: 100xxxxxx  
 
 ## Project Overview
