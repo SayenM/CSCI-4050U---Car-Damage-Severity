@@ -4,8 +4,9 @@
 **Group Members:**  
 
 - [Arian Vares] 	      – arian.vares@ontariotechu.net         -  Student ID: 100882708
+- [Yash Patel]          – yash.patel14@ontariotechu.net      -  Student ID: 100785833 
 - [Sayen Mayuran]  – sayen.mayuran@ontariotechu.net  -  Student ID: 100xxxxxx  
-- [Yash Patel]          – yash.patel14@ontariotechu.net      -  Student ID: 100xxxxxx  
+
 
 
 ## Project Overview
