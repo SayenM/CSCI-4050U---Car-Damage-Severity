@@ -1,9 +1,12 @@
 # Car Damage Severity Classification  
+**GROUP ID: 36**
 **Ontario Tech University – Machine Learning Course Project (Winter 2025)**  
 **Group Members:**  
-- [Arian Vares] 	      – Student ID: 100882708
-- [Yash Patel] – Student ID: 100785833  
-- [Member 3 Name] – Student ID: 100xxxxxx  
+
+- [Arian Vares] 	      – arian.vares@ontariotechu.net         -  Student ID: 100882708
+- [Sayen Mayuran]  – sayen.mayuran@ontariotechu.net  -  Student ID: 100xxxxxx  
+- [Yash Patel]          – yash.patel14@ontariotechu.net      -  Student ID: 100xxxxxx  
+
 
 ## Project Overview
 We are building a deep learning model that can automatically classify the severity of car damage from images into three classes:  
@@ -21,7 +24,8 @@ This has real-world applications in insurance claim automation and repair cost e
 - Images are already organized into subfolders by class (data3a/training and data3a/validation)
 
 ## Current Repository Contents
-├── 01_data_loading_and_eda.ipynb    ← Dataset loading, verification and sample visualization
+├── 01_data_loading_and_eda.ipynb    ← Dataset loading, verification and sample visualization    
+
 ├── README.md                         ← This file
 
 
