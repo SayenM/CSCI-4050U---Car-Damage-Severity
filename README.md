@@ -1,6 +1,7 @@
 # Car Damage Severity Classification  
-**GROUP ID: 36**
-**Ontario Tech University – Machine Learning Course Project (Winter 2025)**  
+
+**GROUP ID: 36**  
+**Ontario Tech University – Machine Learning Course Project (Winter 2025)**
 **Group Members:**  
 
 - [Arian Vares] 	      – arian.vares@ontariotechu.net         -  Student ID: 100882708
@@ -8,41 +9,58 @@
 - [Sayen Mayuran]  – sayen.mayuran@ontariotechu.net  -  Student ID: 100xxxxxx  
 
 
-
-## Project Overview
-We are building a deep learning model that can automatically classify the severity of car damage from images into three classes:  
+## Project Description  
+We are developing a deep learning model that automatically predicts the severity of car damage from a single image. The model classifies damage into three categories:  
 - 01-minor  
 - 02-moderate  
 - 03-severe  
 
-This has real-world applications in insurance claim automation and repair cost estimation.
+This has practical applications in insurance claim processing and repair-cost estimation.
 
-## Dataset
-- Source: Car Damage Severity Dataset (Kaggle)  
-  https://www.kaggle.com/datasets/prajwalbhamere/car-damage-severity-dataset  
-- Training folder: 1,383 images  
-- Validation folder: 248 images  
-- Images are already organized into subfolders by class (data3a/training and data3a/validation)
+## Dataset  
+- Source: [Car Damage Severity Dataset – Kaggle](https://www.kaggle.com/datasets/prajwalbhamere/car-damage-severity-dataset)  
+- Training: 1,383 images  
+- Validation: 248 images  
+- Already organized into `data3a/training` and `data3a/validation` folders by class
 
-## Current Repository Contents
-├── 01_data_loading_and_eda.ipynb    ← Dataset loading, verification and sample visualization    
+## Project Description  
+We are developing a deep learning model that automatically predicts the severity of car damage from a single image. The model classifies damage into three categories:  
+- 01-minor  
+- 02-moderate  
+- 03-severe  
 
-├── README.md                         ← This file
+This has practical applications in insurance claim processing and repair-cost estimation.
 
+## Dataset  
+- Source: [Car Damage Severity Dataset – Kaggle](https://www.kaggle.com/datasets/prajwalbhamere/car-damage-severity-dataset)  
+- Training: 1,383 images  
+- Validation: 248 images  
+- Already organized into `data3a/training` and `data3a/validation` folders by class
 
-The notebook 01_data_loading_and_eda.ipynb contains:  
-- Successful loading of the dataset using tf.keras.utils.image_dataset_from_directory  
-- Verification of class names and folder structure  
-- Visualization of 16 random training images with correct labels  
-- Initial train/validation/test split preparation  
+## Repository Contents 
+├── 01_data_loading_and_eda.ipynb                          ← Dataset loading, verification, sample visualization
 
-## Next Steps (in progress)
-1. Build an optimized tf.data pipeline with augmentation and caching  
-2. Implement transfer learning (starting with VGG16, later ResNet50/EfficientNet)  
-3. Two-phase training: frozen backbone → fine-tuning  
-4. Export the final model and create a Streamlit web demo  
-5. Record the required 10-minute YouTube demonstration video  
+├── 02_transfer_learning_vgg16_frozen_backbone.ipynb       ← Phase 1: VGG16 (frozen backbone) + data augmentation
+→ Achieved 88.1% validation accuracy after 20 epochs
 
-We will add the remaining notebooks and the live demo over the next few days.
+├── README.md
 
+## Current Progress  
+- Dataset loading and exploration completed  
+- Transfer learning implemented using pre-trained VGG16 (backbone frozen)  
+- Data augmentation and normalization pipeline added  
+- Full training of classification head completed (88.1% validation accuracy)
 
+## To Be Completed
+- Fine-tuning of VGG16 (unfreeze last few blocks + low learning rate)  
+- Add callbacks (EarlyStopping, ReduceLROnPlateau, ModelCheckpoint)  
+- Final evaluation + confusion matrix  
+- Export model as SavedModel  
+- Build Streamlit demo app (upload image → prediction)  
+- Create presentation slides (PDF export)  
+- Record 8–10 minute YouTube demonstration video  
+
+All code needed for fine-tuning and the rest is already in notebook 02 — just change `trainable = True` for the last blocks and re-run.
+
+Last updated: December 5, 2025  
+Project on track for completion by December 6.
