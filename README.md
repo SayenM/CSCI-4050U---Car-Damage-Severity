@@ -23,20 +23,6 @@ This has practical applications in insurance claim processing and repair-cost es
 - Validation: 248 images  
 - Already organized into `data3a/training` and `data3a/validation` folders by class
 
-## Project Description  
-We are developing a deep learning model that automatically predicts the severity of car damage from a single image. The model classifies damage into three categories:  
-- 01-minor  
-- 02-moderate  
-- 03-severe  
-
-This has practical applications in insurance claim processing and repair-cost estimation.
-
-## Dataset  
-- Source: [Car Damage Severity Dataset – Kaggle](https://www.kaggle.com/datasets/prajwalbhamere/car-damage-severity-dataset)  
-- Training: 1,383 images  
-- Validation: 248 images  
-- Already organized into `data3a/training` and `data3a/validation` folders by class
-
 ## Repository Contents 
 ├── 01_data_loading_and_eda.ipynb                          ← Dataset loading, verification, sample visualization
 
