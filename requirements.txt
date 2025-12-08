@@ -1,0 +1,7 @@
+streamlit>=1.33
+tensorflow-macos==2.15.0
+tensorflow-metal==1.1.0
+keras==2.15.0
+numpy
+pillow
+scikit-learn

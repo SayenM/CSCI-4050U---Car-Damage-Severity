@@ -4,3 +4,10 @@ models/
 *.hdf5
 data3a/
 .DS_Store
+
+models/
+data3a/
+.DS_Store
+*.keras
+*.h5
+**/.ipynb_checkpoints/
