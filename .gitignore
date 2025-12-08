@@ -1,0 +1,6 @@
+models/
+*.keras
+*.h5
+*.hdf5
+data3a/
+.DS_Store
