@@ -6,8 +6,19 @@
 
 - [Arian Vares] 	      – arian.vares@ontariotechu.net         -  Student ID: 100882708
 - [Yash Patel]          – yash.patel14@ontariotechu.net      -  Student ID: 100785833 
-- [Sayen Mayuran]  – sayen.mayuran@ontariotechu.net  -  Student ID: 100xxxxxx  
+- [Sayen Mayuran]  – sayen.mayuran@ontariotechu.net  -  Student ID: 100925896 
 
+## Presentation & Demonstration  
+
+- **Presentation slides** (PDF): `presentation_slides.pdf`
+- **YouTube demonstration video** (8–10 minutes):  
+   https://youtu.be/L8sijttslHQ
+
+The video covers:  
+- Problem description and motivation  
+- Dataset overview  
+- Model architecture and comparative results  
+- Live demonstration of the Streamlit web application
 
 ## Project Overview  
 This project implements an image classification system that automatically determines the severity of vehicle damage from a single photograph. The model outputs one of three classes:  
