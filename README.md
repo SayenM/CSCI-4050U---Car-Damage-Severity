@@ -9,44 +9,68 @@
 - [Sayen Mayuran]  – sayen.mayuran@ontariotechu.net  -  Student ID: 100xxxxxx  
 
 
-## Project Description  
-We are developing a deep learning model that automatically predicts the severity of car damage from a single image. The model classifies damage into three categories:  
-- 01-minor  
-- 02-moderate  
-- 03-severe  
+## Project Overview  
+This project implements an image classification system that automatically determines the severity of vehicle damage from a single photograph. The model outputs one of three classes:  
+- **01-minor**  
+- **02-moderate**  
+- **03-severe**  
 
-This has practical applications in insurance claim processing and repair-cost estimation.
+The solution is designed for real-world use in insurance claim automation, repair shop triage, and rapid accident assessment.
 
 ## Dataset  
-- Source: [Car Damage Severity Dataset – Kaggle](https://www.kaggle.com/datasets/prajwalbhamere/car-damage-severity-dataset)  
-- Training: 1,383 images  
-- Validation: 248 images  
-- Already organized into `data3a/training` and `data3a/validation` folders by class
+Source: [Car Damage Severity Dataset (Kaggle)](https://www.kaggle.com/datasets/prajwalbhamere/car-damage-severity-dataset)  
+- Training set: 1,383 images  
+- Validation set: 248 images  
+- Images are pre-organized into `data3a/training` and `data3a/validation` folders by severity class.  
+All experiments use a fixed input size of 256×256 pixels.
 
-## Repository Contents 
-├── 01_data_loading_and_eda.ipynb                          ← Dataset loading, verification, sample visualization
+## Repository Structure
 
-├── 02_transfer_learning_vgg16_frozen_backbone.ipynb       ← Phase 1: VGG16 (frozen backbone) + data augmentation
-→ Achieved 88.1% validation accuracy after 20 epochs
+├── 01_data_loading_and_eda.ipynb                     ← Data loading, exploration and visualisation
 
-├── README.md
+├── 02_transfer_learning_vgg16_frozen_backbone.ipynb  ← Frozen VGG16 baseline (88.1 % val acc)
 
-## Current Progress  
-- Dataset loading and exploration completed  
-- Transfer learning implemented using pre-trained VGG16 (backbone frozen)  
-- Data augmentation and normalization pipeline added  
-- Full training of classification head completed (88.1% validation accuracy)
+├── 03_finetune_vgg16.ipynb                            ← Complete fine-tuning pipeline + callbacks + evaluation
 
-## To Be Completed
-- Fine-tuning of VGG16 (unfreeze last few blocks + low learning rate)  
-- Add callbacks (EarlyStopping, ReduceLROnPlateau, ModelCheckpoint)  
-- Final evaluation + confusion matrix  
-- Export model as SavedModel  
-- Build Streamlit demo app (upload image → prediction)  
-- Create presentation slides (PDF export)  
-- Record 8–10 minute YouTube demonstration video  
+├── app.py                                             ← Production-ready Streamlit deployment
 
-All code needed for fine-tuning and the rest is already in notebook 02 — just change `trainable = True` for the last blocks and re-run.
+├── requirements.txt                                   ← Environment dependencies
 
-Last updated: December 5, 2025  
-Project on track for completion by December 6.
+├── models/                                            ← Saved models (best checkpoint + final)
+
+└── README.md
+
+
+## Implemented Models & Results  
+
+| Model                          | Backbone State | Validation Accuracy | Key Observations                              |
+|--------------------------------|----------------|---------------------|-----------------------------------------------|
+| VGG16 (frozen backbone)        | Frozen         | 88.1 %              | Stable baseline, fast convergence             |
+| VGG16 (fine-tuned, last 4 blocks) | Partially trainable | **94.8 %**       | Best overall performance on validation set   |
+| Custom CNN (from scratch)      | –              | ~94–95 %            | Excellent training curves, very stable        |
+
+The fine-tuned VGG16 model was selected for deployment due to its strong generalisation and clean training history.
+
+## Training Details (03_finetune_vgg16.ipynb)  
+- Two-phase training:  
+  1. Frozen backbone – head only (20 epochs)  
+  2. Fine-tuning – last 4 convolutional blocks unfrozen, learning rate 1e-5  
+- Callbacks used: EarlyStopping, ReduceLROnPlateau, ModelCheckpoint  
+- Final evaluation includes classification report and confusion matrix (saved as PNG)  
+- Model exported in both Keras (`.keras`) and SavedModel directory formats  
+
+## Deployment  
+A fully functional web application is provided in `app.py` (Streamlit). Users can:  
+- Upload a JPEG/PNG image of a damaged vehicle  
+- Instantly receive the predicted severity class with confidence score  
+- View a probability bar chart for all three classes  
+
+The app.py automatically detects and loads either a `.keras/.h5` file or a SavedModel directory, making it robust for future model updates.
+
+## How to Run the Demo Locally  
+```bash
+git clone https://github.com/SayenM/CSCI-4050U---Car-Damage-Severity.git
+cd CSCI-4050U---Car-Damage-Severity
+python -m venv venv && source venv/bin/activate
+pip install -r requirements.txt
+streamlit run app.py
