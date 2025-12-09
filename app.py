@@ -21,13 +21,13 @@ IMG_SIZE = (256, 256)
 def load_model_any(path: str):
     p = Path(path)
 
-    # If SavedModel directory
-    if p.is_dir():
-        return tf.saved_model.load(str(p))
-
     # If .keras or .h5 Keras file
     if p.suffix in [".keras", ".h5"]:
         return tf.keras.models.load_model(str(p), compile=False)
+    
+    # If SavedModel directory
+    if p.is_dir():
+        return tf.saved_model.load(str(p))
 
     raise ValueError(f"Unsupported model format: {path}")
 
@@ -64,16 +64,16 @@ def predict_any(model, x_batch_float32):
 # ======================================================
 
 st.title("🚗 Car Damage Severity Classifier")
-st.caption("Using VGG16 Transfer Learning (TensorFlow/Keras)")
+st.caption("Using Your Custom CNN Model")
 
 # -------------------- Sidebar --------------------
 st.sidebar.header("Model Selection")
 
-default_model_path = "models/vgg16_finetuned_savedmodel"
+default_model_path = "models/custom_cnn_model.h5"
 
 model_option = st.sidebar.selectbox(
     "Pick model",
-    ["SavedModel (directory)"],
+    ["SavedModel (directory)", "Keras .h5/.keras model"],
 )
 
 # Show model path but locked (only 1 default)
